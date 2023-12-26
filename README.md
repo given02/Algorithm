@@ -7,5 +7,3 @@ This is a auto push repository for Baekjoon Online Judge created with [BaekjoonH
 - 132201
 - 59034
 - 42840
-
-### 백준
