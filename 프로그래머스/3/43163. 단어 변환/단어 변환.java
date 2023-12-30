@@ -3,10 +3,6 @@ class Solution {
     static int answer = 0;
     
     public int solution(String begin, String target, String[] words) {
-        // 1. begin과 target이 같으면 현재까지 바꾼 횟수를 answer로 반환한다.
-        // 2. words의 첫번째 글자부터 dfs를 돈다.
-        // 3. words의 cnt번째 글자와 begin을 비교한다.
-        
         visited = new boolean[words.length];
         
         dfs(begin, target, words, 0);
