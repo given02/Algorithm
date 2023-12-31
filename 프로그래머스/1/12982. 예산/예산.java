@@ -4,13 +4,14 @@ class Solution {
         int answer = 0;
         
         Arrays.sort(d);
+        
         for(int i = 0; i < d.length; i++){
-            if(budget == 0){
-                break;
-            }
             if(budget - d[i] >= 0 ){
                 budget -= d[i];
                 answer++;
+            }
+            if(budget == 0){
+                break;
             }
         }
         
