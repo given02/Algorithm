@@ -3,12 +3,7 @@ class Solution {
         StringBuilder sb = new StringBuilder();
         
         for(int i = 1; i < food.length; i++){
-            for(int j = 0; j < food[i] / 2 ; j++){
-                if(food[i] == 1){
-                    break;
-                }
-                sb.append(Integer.toString(i));
-            }
+            sb.append(Integer.toString(i).repeat(food[i] / 2));
         }
         
         return sb.toString() + "0" + sb.reverse().toString();
