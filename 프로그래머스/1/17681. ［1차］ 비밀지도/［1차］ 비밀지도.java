@@ -4,20 +4,9 @@ class Solution {
         String[] answer = new String[n];
         
         for(int i = 0; i < n; i++){
-            String str1 = Integer.toBinaryString(arr1[i]);
-            String str2 = Integer.toBinaryString(arr2[i]);
-            str1 = "0".repeat(n - str1.length()) + str1;
-            str2 = "0".repeat(n - str2.length()) + str2;
-            
-            StringBuilder sb = new StringBuilder();
-            for(int j = 0; j < n; j++){
-                if(str1.charAt(j) == '1' || str2.charAt(j) == '1'){
-                    sb.append("#");
-                } else {
-                    sb.append(" ");
-                }
-            }
-            answer[i] = sb.toString();
+            String str = Integer.toBinaryString(arr1[i] | arr2[i]);
+            StringBuilder sb = new StringBuilder("0".repeat(n - str.length()) + str);
+            answer[i] = sb.toString().replace("1", "#").replace("0"," ");
         }
         
         return answer;
