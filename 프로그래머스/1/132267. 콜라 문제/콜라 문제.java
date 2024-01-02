@@ -5,7 +5,6 @@ class Solution {
         while(n >= a){
             answer += (n / a) * b;
             n = (n / a) * b + n % a;
-            System.out.println(answer + " " + n);
         }
         
         return answer;
