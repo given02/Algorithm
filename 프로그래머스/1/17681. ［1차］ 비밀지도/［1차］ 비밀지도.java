@@ -1,16 +1,13 @@
 class Solution {
-  public String[] solution(int n, int[] arr1, int[] arr2) {
-        String[] result = new String[n];
-        for (int i = 0; i < n; i++) {
-            result[i] = Integer.toBinaryString(arr1[i] | arr2[i]);
+    public String[] solution(int n, int[] arr1, int[] arr2) {
+        String[] answer = new String[n];
+        
+        for(int i = 0; i < n; i++){
+            String str = Integer.toBinaryString(arr1[i] | arr2[i]);
+            str = "0".repeat(n - str.length()) + str;
+            answer[i] = str.replace("1", "#").replace("0"," ");
         }
-
-        for (int i = 0; i < n; i++) {
-            result[i] = String.format("%" + n + "s", result[i]);
-            result[i] = result[i].replaceAll("1", "#");
-            result[i] = result[i].replaceAll("0", " ");
-        }
-
-        return result;
+        
+        return answer;
     }
 }
