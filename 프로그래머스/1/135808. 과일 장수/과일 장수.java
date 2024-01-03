@@ -5,14 +5,9 @@ class Solution {
         
         Arrays.sort(score);
         
-        for(int i = score.length - 1; i >= score.length % m; i-=m){
-            int min = k;
-            for(int j = 0; j < m; j++){
-                min = Math.min(k, score[i-j]);
-            }
-            answer += min * m;
+        for(int i = score.length; i >= m; i-=m){
+            answer += score[i-m] * m;
         }
-        
         
         return answer;
     }
