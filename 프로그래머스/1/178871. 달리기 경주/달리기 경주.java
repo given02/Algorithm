@@ -13,8 +13,8 @@ class Solution {
             
             map.put(player, map.get(player) - 1);
             map.put(nextPlayer, map.get(nextPlayer) + 1);
-            players[curRank - 1] = player;
             players[curRank] = nextPlayer;
+            players[curRank - 1] = player;
         }
         
         return players;
