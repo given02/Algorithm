@@ -12,11 +12,7 @@ class Solution {
             }
         }
         
-        Collections.sort(list, new Comparator<int[]>(){
-            public int compare(int[] arr1, int[] arr2){
-                return Integer.compare(arr1[sortNum], arr2[sortNum]);
-            }
-        });
+        Collections.sort(list, (arr1, arr2) -> arr1[sortNum] - arr2[sortNum]);
         
         return list;
     }
