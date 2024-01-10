@@ -1,22 +1,18 @@
 import java.util.*;
 class Solution {
     public int solution(String[] friends, String[] gifts) {
-        HashMap<String, Integer> giftsMap = new HashMap<>();
-        HashMap<String, Integer> sended = new HashMap<>();
-        HashMap<String, Integer> recieved = new HashMap<>();
         HashMap<String, Integer> giftScore = new HashMap<>();
+        HashMap<String, Integer> giftsMap = new HashMap<>();
+        
+        for(String friend : friends){
+            giftScore.put(friend, 0);
+        }
         
         for(String gift : gifts){
             String[] arr = gift.split(" ");
-            sended.put(arr[0], sended.getOrDefault(arr[0],0)+1);
-            recieved.put(arr[1], recieved.getOrDefault(arr[1],0)+1);
+            giftScore.put(arr[0], giftScore.get(arr[0])+1);
+            giftScore.put(arr[1], giftScore.get(arr[1])-1);
             giftsMap.put(gift, giftsMap.getOrDefault(gift,0)+1);
-        }
-        
-        for(String friend : friends){
-            giftScore.put(friend, 
-                          (sended.containsKey(friend) ? sended.get(friend) : 0) - 
-                          (recieved.containsKey(friend) ? recieved.get(friend) : 0));
         }
         
         int[] giftForNextMonth = new int[friends.length];
