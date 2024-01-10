@@ -1,12 +1,11 @@
 import java.util.*;
 class Solution {
     public String solution(String[] survey, int[] choices) {
-        String[] types = {"R","T","C","F","J","M","A","N"};
         HashMap<String, Integer> map = new HashMap<>();
-        
-        for(String type : types){
-            map.put(type, 0);
-        }
+        map.put("R", 0); map.put("T", 0);
+        map.put("C", 0); map.put("F", 0);
+        map.put("J", 0); map.put("M", 0);
+        map.put("A", 0); map.put("N", 0);
         
         for(int i = 0; i < survey.length; i++){
             String[] arr = survey[i].split("");
