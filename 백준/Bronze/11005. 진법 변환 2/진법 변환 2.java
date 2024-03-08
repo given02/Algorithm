@@ -10,15 +10,15 @@ public class Main {
         String str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String[] arr = sc.nextLine().split(" ");
 
-        String answer = "";
+        StringBuilder answer = new StringBuilder();
         long num1 = Long.parseLong(arr[0]);
         int num2 = Integer.parseInt(arr[1]);
 
         while(num1 >= num2){
-            answer = str.charAt((int) (num1 % num2)) + answer;
+            answer.insert(0, str.charAt((int) (num1 % num2)));
             num1 /= num2;
         }
-        answer = str.charAt((int) num1) + answer;
+        answer.insert(0, str.charAt((int) num1));
 
         System.out.println(answer);
     }
