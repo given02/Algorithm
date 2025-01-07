@@ -11,10 +11,10 @@ public class Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(bf.readLine());
 
-        int A = Integer.parseInt(st.nextToken());
-        int B = Integer.parseInt(st.nextToken());
+        long A = Long.parseLong(st.nextToken());
+        long B = Long.parseLong(st.nextToken());
 
-        bw.write(Integer.toString((A+B)*(A-B)));
+        bw.write(Long.toString((A+B)*(A-B)));
         bw.close();
     }
 
