@@ -12,19 +12,30 @@ public class Main {
         int N = Integer.parseInt(br.readLine());
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-        HashSet<Integer> set = new HashSet<>();
-        for(int i = 1; i < N+1; i++){
-            set.add(Integer.parseInt(st.nextToken()));
+        int[] arr = new int[N];
+        for(int i = 0; i < N; i++){
+            arr[i] = Integer.parseInt(st.nextToken());
         }
 
+        Arrays.sort(arr);
+
         int X = Integer.parseInt(br.readLine());
+        int start = 0;
+        int end = N-1;
         int count = 0;
-        for(int key : set){
-            if(set.contains(X - key)){
+        int sum;
+        while(start < end){
+            sum = arr[start] + arr[end];
+            if(sum == X){
                 count++;
+                start++;
+                end--;
+            } else if(sum < X) {
+                start++;
+            } else {
+                end--;
             }
         }
-        count /= 2;
 
         System.out.println(count);
     }
