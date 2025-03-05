@@ -17,30 +17,33 @@ public class Main {
             }
         }
 
-        int s = 0, e = 0, sum = 0, cnt = 0;
-        while(true) {
-            if (sum >= N) {
+        int s=0, e=0, sum=0, cnt=0;
+        while(true){
+            if(sum < N){
+                if(e >= prime.size()){
+                    break;
+                } else {
+                    sum += prime.get(e++);
+                }
+            } else {
                 sum -= prime.get(s++);
-            } else if(e == prime.size()) {
-                break;
-            } else{
-                sum += prime.get(e++);
             }
+
             if(sum == N){
                 cnt++;
             }
         }
 
-
         System.out.println(cnt);
     }
 
-    public static boolean isPrime(int num){
+    public static boolean isPrime(int num) {
         for(int i = 2; i * i <= num; i++){
-            if (num % i == 0) {
+            if(num % i == 0){
                 return false;
             }
         }
         return true;
     }
+
 }
