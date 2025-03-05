@@ -15,14 +15,9 @@ public class Main {
             queue.add(i);
         }
 
-        int idx = 1;
         while(queue.size() > 1){
-            if(idx % 2 == 0){
-                queue.add(queue.poll());
-            } else {
-                queue.poll();
-            }
-            idx++;
+            queue.poll();
+            queue.add(queue.poll());
         }
 
         System.out.println(queue.peek());
