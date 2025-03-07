@@ -9,6 +9,7 @@ public class Main {
 
     public static void solution() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
         int N = Integer.parseInt(st.nextToken());
         String[] arr = new String[N];
@@ -26,24 +27,25 @@ public class Main {
                     deque.addLast(arr[i].substring(2));
                     break;
                 case '3':
-                    System.out.println(deque.isEmpty() ? -1 : deque.pollFirst());
+                    bw.write((deque.isEmpty() ? -1 : deque.pollFirst()) + "\n");
                     break;
                 case '4':
-                    System.out.println(deque.isEmpty() ? -1 : deque.pollLast());
+                    bw.write((deque.isEmpty() ? -1 : deque.pollLast()) + "\n");
                     break;
                 case '5':
-                    System.out.println(deque.size());
+                    bw.write((deque.size()) + "\n");
                     break;
                 case '6':
-                    System.out.println(deque.isEmpty() ? 1 : 0);
+                    bw.write((deque.isEmpty() ? 1 : 0) + "\n");
                     break;
                 case '7':
-                    System.out.println(deque.isEmpty() ? -1 : deque.peekFirst());
+                    bw.write((deque.isEmpty() ? -1 : deque.peekFirst()) + "\n");
                     break;
                 case '8':
-                    System.out.println(deque.isEmpty() ? -1 : deque.peekLast());
+                    bw.write((deque.isEmpty() ? -1 : deque.peekLast()) + "\n");
                     break;
             }
         }
+        bw.close();
     }
 }
