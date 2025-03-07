@@ -41,7 +41,7 @@ public class Main {
         StringBuilder answer = new StringBuilder();
         for (int i = 0; i < M; i++) {
             queue.add(insertList[i]);
-            answer.append((queue.pollFirst() + " "));
+            answer.append(queue.pollFirst()).append(" ");
         }
 
         System.out.println(answer);
