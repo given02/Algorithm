@@ -1,21 +1,27 @@
 class Solution {
-    int answer = 0;
+    
+    public static int answer = 0;
+    
     public int solution(int[] numbers, int target) {
-        dfs(0, 0, numbers, target);
-            
+        
+        DFS(numbers, target, 0, 0);
+        
         return answer;
     }
-    public void dfs(int sum, int idx, int[] numbers, int target){
-        if (idx == numbers.length && sum == target) {
+    
+    public void DFS(int[] numbers, int target, int sum, int idx){
+        if(idx == numbers.length && sum == target){
             answer++;
             return;
         }
         
-        if (idx >= numbers.length) {
+        if(idx >= numbers.length){
             return;
         }
         
-        dfs(sum + numbers[idx], idx + 1, numbers, target);
-        dfs(sum - numbers[idx], idx + 1, numbers, target);
+        DFS(numbers, target, sum + numbers[idx], idx+1);
+        DFS(numbers, target, sum - numbers[idx], idx+1);
+        
     }
+    
 }
