@@ -5,6 +5,8 @@ import java.util.Queue;
 public class Main {
 
     private static int[][] visited;
+    private static int[] moveX = {-2,-2,2,2,-1,-1,1,1};
+    private static int[] moveY = {-1,1,-1,1,-2,2,-2,2};
     private static int N;
 
     public static void main(String[] args) throws IOException {
@@ -39,37 +41,14 @@ public class Main {
                 return visited[x][y] - 1;
             }
 
-            if (x-2 >= 0 && y-1 >= 0 && visited[x-2][y-1] == 0) {
-                visited[x-2][y-1] = visited[x][y] + 1;
-                queue.add(new String[]{String.valueOf(x-2),String.valueOf(y-1)});
-            }
-            if (x-2 >= 0 && y+1 < N && visited[x-2][y+1] == 0) {
-                visited[x-2][y+1] = visited[x][y] + 1;
-                queue.add(new String[]{String.valueOf(x-2),String.valueOf(y+1)});
-            }
-            if (x+2 < N && y-1 >= 0 && visited[x+2][y-1] == 0) {
-                visited[x+2][y-1] = visited[x][y] + 1;
-                queue.add(new String[]{String.valueOf(x+2),String.valueOf(y-1)});
-            }
-            if (x+2 < N && y+1 < N && visited[x+2][y+1] == 0) {
-                visited[x+2][y+1] = visited[x][y] + 1;
-                queue.add(new String[]{String.valueOf(x+2),String.valueOf(y+1)});
-            }
-            if (x-1 >= 0 && y-2 >= 0 && visited[x-1][y-2] == 0) {
-                visited[x-1][y-2] = visited[x][y] + 1;
-                queue.add(new String[]{String.valueOf(x-1),String.valueOf(y-2)});
-            }
-            if (x-1 >= 0 && y+2 < N && visited[x-1][y+2] == 0) {
-                visited[x-1][y+2] = visited[x][y] + 1;
-                queue.add(new String[]{String.valueOf(x-1),String.valueOf(y+2)});
-            }
-            if (x+1 < N && y-2 >= 0 && visited[x+1][y-2] == 0) {
-                visited[x+1][y-2] = visited[x][y] + 1;
-                queue.add(new String[]{String.valueOf(x+1),String.valueOf(y-2)});
-            }
-            if (x+1 < N && y+2 < N && visited[x+1][y+2] == 0) {
-                visited[x+1][y+2] = visited[x][y] + 1;
-                queue.add(new String[]{String.valueOf(x+1),String.valueOf(y+2)});
+            for(int i = 0; i < 8; i++){
+                int nx = x + moveX[i];
+                int ny = y + moveY[i];
+
+                if(nx < 0 || ny < 0 || nx >= N || ny >= N) continue;
+                if(visited[nx][ny] > 0) continue;
+                visited[nx][ny] = visited[x][y] + 1;
+                queue.add(new String[]{String.valueOf(nx),String.valueOf(ny)});
             }
         }
 
