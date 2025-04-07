@@ -23,13 +23,13 @@ class Solution {
         dp = new int[N][N][2];
         for (int[][] a : dp)
             for (int[] b : a)
-                Arrays.fill(b, Integer.MIN_VALUE); // 최소는 MIN_VALUE로, 최대는 -MIN_VALUE로
+                Arrays.fill(b, Integer.MIN_VALUE);
         
-        return DP(0, N - 1, 1); // 전체 범위의 최대값 계산
+        return DP(0, N - 1, 1);
     }
 
     private int DP(int s, int e, int isMax) {
-        if (s == e) return nums[s]; // 숫자 하나 남은 경우
+        if (s == e) return nums[s];
         if (dp[s][e][isMax] != Integer.MIN_VALUE) return dp[s][e][isMax];
         
         int res = isMax == 1 ? Integer.MIN_VALUE : Integer.MAX_VALUE;
