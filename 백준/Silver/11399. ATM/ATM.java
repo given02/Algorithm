@@ -21,10 +21,12 @@ public class Main {
 
         Arrays.sort(arr);
 
+        int answer = arr[0];
         for(int i = 1; i < N; i++){
             arr[i] += arr[i-1];
+            answer += arr[i];
         }
 
-        System.out.println(Arrays.stream(arr).sum());
+        System.out.println(answer);
     }
 }
